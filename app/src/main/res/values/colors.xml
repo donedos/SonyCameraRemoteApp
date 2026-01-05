@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!-- res/values/colors.xml -->
+    <color name="alpha_black">#0B0B0B</color>
+    <color name="alpha_dark">#121212</color>
+    <color name="alpha_surface">#1A1A1A</color>
+    <color name="alpha_text_primary">#E6E6E6</color>
+    <color name="alpha_text_secondary">#9E9E9E</color>
+    <color name="alpha_green">#3DFF3D</color>
+    <color name="alpha_red">#E53935</color>
+
+</resources>

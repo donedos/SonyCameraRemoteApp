@@ -1,0 +1,51 @@
+apply plugin: 'com.android.library'
+
+android {
+    // Updated to match your main app module
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 21
+        // targetSdk is usually not required in library modules,
+        // it inherits from the app consuming it.
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // Modern Gradle requires a unique namespace for every module.
+    // Ensure this matches the package name in this module's Manifest.
+    namespace "com.sleepyzzz.photo_selector"
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Required for modern Java compatibility in Gradle 8+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    // Use 'api' for the libs folder so the main app can also see the JARs inside
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Modern JUnit version
+    testImplementation 'junit:junit:4.13.2'
+
+    // Migrated from Support Library to AndroidX
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+
+    // NineOldAndroids is very old (for Android 2.x/3.x compatibility).
+    // If you get errors, you might be able to remove this as
+    // modern Android has these animations built-in.
+    implementation 'com.nineoldandroids:library:2.4.0'
+
+    // Glide 3.7.0 is old but should still work.
+    // If it fails, consider upgrading to 'com.github.bumptech.glide:glide:4.16.0'
+    //implementation 'com.github.bumptech.glide:glide:3.7.0'
+}
